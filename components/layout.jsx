@@ -20,63 +20,64 @@ export default function Layout({ children, home }) {
   },[])
 
   console.log(post, "Post")
-
-  return (
-    <div className={styles.container}>
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content={post?.status}
-        />
-        <meta
-          property="og:image"
-          content={post?.image}
-        />
-        <meta name="og:title" content={`Lauraaa${post?.name}`} />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Head>
-      <header className={styles.header}>
-        {home ? (
-          <>
-            <Image
-              priority
-              src="/images/profile.jpg"
-              className={utilStyles.borderCircle}
-              height={144}
-              width={144}
-              alt=""
-            />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
-          </>
-        ) : (
-          <>
-            <Link href="/">
+  if(Object.entries(post).length !==0 ){
+    return (
+      <div className={styles.container}>
+        <Head>
+          <link rel="icon" href="/favicon.ico" />
+          <meta
+            name="description"
+            content={post?.status}
+          />
+          <meta
+            property="og:image"
+            content={post?.image}
+          />
+          <meta name="og:title" content={`Lauraaa${post?.name}`} />
+          <meta name="twitter:card" content="summary_large_image" />
+        </Head>
+        <header className={styles.header}>
+          {home ? (
+            <>
               <Image
                 priority
                 src="/images/profile.jpg"
                 className={utilStyles.borderCircle}
-                height={108}
-                width={108}
+                height={144}
+                width={144}
                 alt=""
               />
-            </Link>
-            <h2 className={utilStyles.headingLg}>
-              <Link href="/" className={utilStyles.colorInherit}>
-                {name}
+              <h1 className={utilStyles.heading2Xl}>{name}</h1>
+            </>
+          ) : (
+            <>
+              <Link href="/">
+                <Image
+                  priority
+                  src="/images/profile.jpg"
+                  className={utilStyles.borderCircle}
+                  height={108}
+                  width={108}
+                  alt=""
+                />
               </Link>
-            </h2>
-          </>
+              <h2 className={utilStyles.headingLg}>
+                <Link href="/" className={utilStyles.colorInherit}>
+                  {name}
+                </Link>
+              </h2>
+            </>
+          )}
+        </header>
+        <main>{children}</main>
+        {!home && (
+          <div className={styles.backToHome}>
+            <Link href="/">← Back to home</Link>
+          </div>
         )}
-      </header>
-      <main>{children}</main>
-      {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">← Back to home</Link>
-        </div>
-      )}
-    </div>
-  );
+      </div>
+    );
+  }
 }
 
 // import styles from './layout.module.css';
