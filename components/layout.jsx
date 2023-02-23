@@ -3,26 +3,37 @@ import Image from 'next/image';
 import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import getPost from '../pages/api/getPost';
 
 const name = 'Dave';
 export const siteTitle = 'Next.js Sample Website';
 
 export default function Layout({ children, home }) {
+  const [post, setPost] = useState({})
+  useEffect( ()=>{
+    async function fetchData(){
+      const postApi = await getPost(1)
+      setPost(postApi)
+    }    
+    fetchData()
+  },[])
+
+  console.log(post, "Post")
+
   return (
     <div className={styles.container}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Learn how to build a personal website using Next.js"
+          content={post?.status}
         />
         <meta
           property="og:image"
-          content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle,
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
+          content={post?.image}
         />
-        <meta name="og:title" content={siteTitle} />
+        <meta name="og:title" content={post?.name} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
