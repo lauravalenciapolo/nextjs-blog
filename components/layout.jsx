@@ -33,7 +33,7 @@ export default function Layout({ children, home }) {
           property="og:image"
           content={post?.image}
         />
-        <meta name="og:title" content={post?.name} />
+        <meta name="og:title" content="LAURAAAAA" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
