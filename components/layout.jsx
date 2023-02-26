@@ -19,7 +19,12 @@ export default function Layout({ children, home }) {
     fetchData()
   },[])
 
+  // if(Object.entries(post).length !==0 ){
+  //   const postimage = post.image
+  // }
+  
   console.log(post, "Post")
+
   if(Object.entries(post).length !==0 ){
     return (
       <div className={styles.container}>
@@ -31,7 +36,7 @@ export default function Layout({ children, home }) {
           />
           <meta
             property="og:image"
-            content={post?.image}
+            content="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
           />
           <meta name="og:title" content={`Lauraaa${post?.name}`} />
           <meta name="twitter:card" content="summary_large_image" />
