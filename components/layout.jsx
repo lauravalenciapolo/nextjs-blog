@@ -18,11 +18,7 @@ export default function Layout({ children, home }) {
     }    
     fetchData()
   },[])
-
-  // if(Object.entries(post).length !==0 ){
-  //   const postimage = post.image
-  // }
-  
+ 
   console.log(post, "Post")
 
 
@@ -32,11 +28,12 @@ export default function Layout({ children, home }) {
           <link rel="icon" href="/favicon.ico" />
           <meta
             name="description"
-            content="Lauraaa descripcion "
+            content={`Lauraaa descripcion ${post.name} `}
           />
           <meta
             property="og:image"
-            content="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+            // content="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+            content={`Lauraaa descripcion ${post.image} `}
           />
           <meta name="og:title" content="laura" />
           <meta name="twitter:card" content="summary_large_image" />
