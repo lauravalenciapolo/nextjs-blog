@@ -25,7 +25,7 @@ export default function Layout({ children, home }) {
   
   console.log(post, "Post")
 
-  if(Object.entries(post).length !==0 ){
+
     return (
       <div className={styles.container}>
         <Head>
@@ -84,7 +84,6 @@ export default function Layout({ children, home }) {
         )}
       </div>
     );
-  }
 }
 
 // import styles from './layout.module.css';
