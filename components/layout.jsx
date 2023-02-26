@@ -32,13 +32,13 @@ export default function Layout({ children, home }) {
           <link rel="icon" href="/favicon.ico" />
           <meta
             name="description"
-            content={post?.status}
+            content="Lauraaa descripcion "
           />
           <meta
             property="og:image"
             content="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
           />
-          <meta name="og:title" content={`Lauraaa${post?.name}`} />
+          <meta name="og:title" content="laura" />
           <meta name="twitter:card" content="summary_large_image" />
         </Head>
         <header className={styles.header}>
